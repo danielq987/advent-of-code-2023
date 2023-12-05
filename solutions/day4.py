@@ -1,19 +1,18 @@
 from helpers import readFile
+from collections import defaultdict
 
 def main():
     lines = readFile("day4.txt")
     
-    # Do some data processing here
-    
     part1 = 0
     part2 = 0
     
-    lookup = {}
+    lookup = defaultdict(lambda: 1)
 
     for card, line in enumerate(lines):
-        a = line.split("|")
-        winning = [int(num) for num in a[0].strip().split(":")[1].strip().split()]
-        scratch = [int(num) for num in a[1].strip().split()]
+        winning, scratch = line.split("|")
+        winning = [int(num) for num in winning.strip().split(":")[1].strip().split()]
+        scratch = [int(num) for num in scratch.strip().split()]
 
         intersect = len(set(winning) & set(scratch))
         
@@ -21,8 +20,8 @@ def main():
             part1 += 2 ** (intersect - 1)
 
         for i in range(intersect):
-            lookup[card + i + 1] = lookup.get(card + i + 1, 1) + lookup.get(card, 1)
-        part2 += lookup.get(card, 1)
+            lookup[card + i + 1] = lookup[card + i + 1]+ lookup[card]
+        part2 += lookup[card]
         
     print(part1)
     print(part2)
