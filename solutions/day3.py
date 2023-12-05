@@ -38,6 +38,7 @@ def main():
             col += 1
                 
                 
+    # Only include gear ratios with 2 or more
     for nums in lookup.values():
         if len(nums) == 2:
             part2 += nums[0]*nums[1]

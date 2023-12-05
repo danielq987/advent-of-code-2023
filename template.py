@@ -1,13 +1,19 @@
 from helpers import readFile
-from collections import defaultdict
 
 def main():
     lines = readFile("day0.txt")
     
+    part1 = 0
+    part2 = 0
+    
     # Do some data processing here
     lines = [line for line in lines]
+    
+    for line in lines:
+        pass
 
-    print(lines)
+    part1 = 0
+    part2 = 0
 
 if __name__ == "__main__":
     main()
