@@ -6,14 +6,11 @@ def main():
     part1 = 0
     part2 = 0
     
-    # Do some data processing here
-    lines = [line for line in lines]
-    
     for line in lines:
         pass
 
-    part1 = 0
-    part2 = 0
+    print(f"Part 1: {part1}")
+    print(f"Part 2: {part2}")
 
 if __name__ == "__main__":
     main()
