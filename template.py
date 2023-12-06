@@ -1,4 +1,4 @@
-from helpers import readFile
+from helpers import readFile, getNums
 
 def main():
     lines = readFile("day0.txt")
