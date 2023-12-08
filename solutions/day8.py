@@ -53,6 +53,8 @@ def main():
         if i_dirs >= l_dirs:
             i_dirs = 0
     
+    # Gonna be honest, still not too sure why taking the LCM works.
+    # I just noticed that there was a periodic cycle in the endTimes.
     part2 = lcm(*[cycles[1] for cycles in endTimes])
 
     print(f"Part 1: {part1}")
