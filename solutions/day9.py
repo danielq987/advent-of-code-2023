@@ -3,23 +3,14 @@ from helpers import readFile, getNums
 def main():
     
     def helper(l, is_backwards):
-        ret = []
-        is_zero = True
-        for ind, num in enumerate(l[1:]):
-            a = l[ind + 1] - l[ind]
-            ret.append(a) 
-            if a != 0:
-                is_zero = False
+        if not any(l):
+            return 0
+        diff = [l[ind] - l[ind - 1] for ind in range(1, len(l))]
         
-        if is_backwards:
-            if is_zero:
-                return l[0]
-            return l[0] - helper(ret, is_backwards)
-        else:
-            if is_zero:
-                return l[-1]
-            return l[-1] + helper(ret, is_backwards)
-
+        index = 0 if is_backwards else -1
+        sgn = -1 if is_backwards else 1
+        
+        return l[index] + (helper(diff, is_backwards)) * sgn
         
     lines = readFile("day9.txt")
     
@@ -29,8 +20,8 @@ def main():
     lines = [getNums(line, True) for line in lines]
     
     for line in lines:
-        part1 += helper(line, False)
-        part2 += helper(line, True)
+        part1 += helper(line, is_backwards=False)
+        part2 += helper(line, is_backwards=True)
         
     print(f"Part 1: {part1}")
     print(f"Part 2: {part2}")
