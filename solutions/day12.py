@@ -68,9 +68,7 @@ def main():
                 nums[0] -= 1
                 solutions += solve(spring_copy, nums, index + 1, False)
 
-        # weird memo hack to make the code work :C
-        if index > 20:
-            lookup[key] = solutions
+        lookup[key] = solutions
 
         return solutions
     
@@ -82,11 +80,13 @@ def main():
         nums2 = nums * 5
         
         c1 = solve(springs, nums, 0, True) 
+        lookup.clear()
         c2 = solve(springs2, nums2, 0, True) 
+        lookup.clear()
+
         part1 += c1
         part2 += c2
         
-        lookup.clear()
          
     print(f"Part 1: {part1}")
     print(f"Part 2: {part2}")
