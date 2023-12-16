@@ -9,3 +9,6 @@ def readFile(filename):
 def getNums(line, negative=False):
     reString = "[0-9-]+" if negative else "\d+"
     return [int(num) for num in re.findall(reString, line)]
+
+def dim(grid):
+    return len(grid), len(grid[0])

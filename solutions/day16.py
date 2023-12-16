@@ -1,4 +1,4 @@
-from helpers import readFile, getNums
+from helpers import readFile, dim
 
 def main():
     lines = readFile("day16.txt")
@@ -6,8 +6,7 @@ def main():
     part1 = 0
     part2 = 0
 
-    height = len(lines)
-    width = len(lines[0])
+    height, width = dim(lines)
 
     # 0123, up, right, down, left
     def processDir(r, c, dir):
